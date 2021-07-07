@@ -1,40 +1,41 @@
 package github.devokado.ecommerce.catalog.domain.product;
 
 import github.devokado.ecommerce.common.domain.BaseAggregateRoot;
+import github.devokado.ecommerce.common.domain.Money;
 
 public class Product extends BaseAggregateRoot {
 
-    Long id;
-    String name;
-    Integer price;
-    Integer stockCount;
+    ProductId id;
+    ProductName name;
+    Money price;
+    StockCount stockCount;
 
-    public Product(Long id, String name, Integer price, Integer stockCount) {
+    public Product(ProductId id, ProductName name, Money price, StockCount stockCount) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.stockCount = stockCount;
     }
 
-    public void updateStockCount(Integer newStockCount) {
-        Integer delta = newStockCount - this.stockCount();
+    public void updateStockCount(StockCount newStockCount) {
+        StockCount delta = newStockCount.subtract(this.stockCount());
         this.stockCount = newStockCount;
-        this.registerEvent(new ProductStockCountUpdated(delta));
+        this.registerEvent(new ProductStockCountUpdated(delta.value()));
     }
 
-    public Long id() {
+    public ProductId id() {
         return id;
     }
 
-    public String name() {
+    public ProductName name() {
         return name;
     }
 
-    public Integer price() {
+    public Money price() {
         return price;
     }
 
-    public Integer stockCount() {
+    public StockCount stockCount() {
         return stockCount;
     }
 }
