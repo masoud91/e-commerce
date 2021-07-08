@@ -15,7 +15,7 @@ public class ProductDTO {
 
     public static ProductDTO fromDomain(Product aDomain) {
         return new ProductDTO(
-                aDomain.id().toString(),
+                aDomain.id().value().toString(),
                 aDomain.name().value(),
                 aDomain.price().amount(),
                 aDomain.stockCount().value()

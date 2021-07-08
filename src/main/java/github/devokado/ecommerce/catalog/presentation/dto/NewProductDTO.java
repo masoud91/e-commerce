@@ -11,5 +11,5 @@ import lombok.ToString;
 public class NewProductDTO {
     String name;
     Double price;
-    Integer stock_count;
+    Integer stockCount;
 }

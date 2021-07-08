@@ -6,6 +6,7 @@ import github.devokado.ecommerce.catalog.domain.product.ProductName;
 import github.devokado.ecommerce.catalog.domain.product.StockCount;
 import github.devokado.ecommerce.common.domain.Money;
 import lombok.Data;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,6 +20,7 @@ import java.util.UUID;
 public class ProductEntity {
 
     @Id
+    @Type(type="uuid-char")
     private UUID id;
 
     @Column(name = "name")

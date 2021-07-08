@@ -3,6 +3,7 @@ package github.devokado.ecommerce.catalog.application.service;
 
 import github.devokado.ecommerce.catalog.application.command.UpdateProductStockCountCommand;
 import github.devokado.ecommerce.catalog.domain.product.ProductId;
+import github.devokado.ecommerce.catalog.domain.product.StockCount;
 import github.devokado.ecommerce.common.application.message.CommandHandler;
 import github.devokado.ecommerce.common.application.message.Result;
 import github.devokado.ecommerce.common.domain.DomainEventDispatcher;
@@ -29,10 +30,12 @@ public class UpdateProductStockCountCommandHandler implements CommandHandler<Upd
     @Override
     @TransactionalEventListener
     public Result Handle(UpdateProductStockCountCommand aCommand) {
-        // TODO: fix this
-        Product product = (productRepository.productOfId(new ProductId(UUID.fromString(aCommand.getId())))).get();
+        Product product =
+                productRepository.productOfId(
+                        new ProductId(UUID.fromString(aCommand.getId()))
+                ).orElseThrow(RuntimeException::new);
 
-        product.updateStockCount(aCommand.getStock_count());
+        product.updateStockCount(new StockCount(aCommand.getStockCount()));
 
         productRepository.save(product);
 

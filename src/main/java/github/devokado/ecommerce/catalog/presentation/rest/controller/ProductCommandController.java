@@ -27,7 +27,7 @@ public class ProductCommandController {
         AddProductCommand command = new AddProductCommand(
                 addProductDTO.getName(),
                 addProductDTO.getPrice(),
-                addProductDTO.getStock_count()
+                addProductDTO.getStockCount()
         );
         message.dispatch(command);
         return ResponseEntity.ok(addProductDTO);
@@ -38,7 +38,7 @@ public class ProductCommandController {
                                          @RequestBody NewProductStockCountDTO newProductStockCountDTO) {
         UpdateProductStockCountCommand command = new UpdateProductStockCountCommand(
                 id,
-                newProductStockCountDTO.getStock_count()
+                newProductStockCountDTO.getStockCount()
         );
         message.dispatch(command);
         return ResponseEntity.noContent().build();

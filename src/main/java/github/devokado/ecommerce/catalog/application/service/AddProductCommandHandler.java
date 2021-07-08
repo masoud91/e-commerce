@@ -28,7 +28,7 @@ public class AddProductCommandHandler implements CommandHandler<AddProductComman
                 id,
                 new ProductName(aCommand.getName()),
                 new Money(aCommand.getPrice()),
-                new StockCount(aCommand.getStock_count())
+                new StockCount(aCommand.getStockCount())
         );
         productRepository.save(product);
 
