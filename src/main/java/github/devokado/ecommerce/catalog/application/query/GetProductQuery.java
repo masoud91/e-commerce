@@ -2,15 +2,11 @@ package github.devokado.ecommerce.catalog.application.query;
 
 import github.devokado.ecommerce.catalog.application.query.dto.ProductDTO;
 import github.devokado.ecommerce.common.application.message.Query;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
+@Data
+@AllArgsConstructor
 public class GetProductQuery implements Query<ProductDTO> {
-    private final Long id;
-
-    public GetProductQuery(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
-    }
+    private final String id;
 }

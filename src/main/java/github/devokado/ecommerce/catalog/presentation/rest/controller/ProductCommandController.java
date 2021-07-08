@@ -34,7 +34,7 @@ public class ProductCommandController {
     }
 
     @PutMapping("{id}/update_stock_count")
-    ResponseEntity<?> update_stock_count(@PathVariable Long id,
+    ResponseEntity<?> update_stock_count(@PathVariable String id,
                                          @RequestBody NewProductStockCountDTO newProductStockCountDTO) {
         UpdateProductStockCountCommand command = new UpdateProductStockCountCommand(
                 id,

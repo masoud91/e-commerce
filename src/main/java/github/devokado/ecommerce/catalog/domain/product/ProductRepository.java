@@ -5,7 +5,7 @@ import java.util.Optional;
 public interface ProductRepository {
     void save(Product aProduct);
 
-    Optional<Product> productOfId(Long anId);
+    Optional<Product> productOfId(ProductId anId);
 
     ProductId nextId();
 }

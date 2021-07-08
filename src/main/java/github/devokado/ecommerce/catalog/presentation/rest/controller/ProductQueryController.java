@@ -23,7 +23,7 @@ public class ProductQueryController {
     }
 
     @GetMapping("/{id}")
-    ResponseEntity<?> getProductById(@PathVariable Long id) {
+    ResponseEntity<?> getProductById(@PathVariable String id) {
         GetProductQuery query = new GetProductQuery(id);
         ProductDTO productDTO = message.dispatch(query);
         return ResponseEntity.ok(productDTO);

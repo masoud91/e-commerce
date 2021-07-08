@@ -2,11 +2,10 @@ package github.devokado.ecommerce.catalog.application.service;
 
 
 import github.devokado.ecommerce.catalog.application.command.AddProductCommand;
-import github.devokado.ecommerce.catalog.domain.product.ProductId;
+import github.devokado.ecommerce.catalog.domain.product.*;
 import github.devokado.ecommerce.common.application.message.CommandHandler;
 import github.devokado.ecommerce.common.application.message.Result;
-import github.devokado.ecommerce.catalog.domain.product.Product;
-import github.devokado.ecommerce.catalog.domain.product.ProductRepository;
+import github.devokado.ecommerce.common.domain.Money;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.event.TransactionalEventListener;
 
@@ -27,9 +26,9 @@ public class AddProductCommandHandler implements CommandHandler<AddProductComman
         ProductId id = productRepository.nextId();
         Product product = new Product(
                 id,
-                aCommand.getName(),
-                aCommand.getPrice(),
-                aCommand.getStock_count()
+                new ProductName(aCommand.getName()),
+                new Money(aCommand.getPrice()),
+                new StockCount(aCommand.getStock_count())
         );
         productRepository.save(product);
 

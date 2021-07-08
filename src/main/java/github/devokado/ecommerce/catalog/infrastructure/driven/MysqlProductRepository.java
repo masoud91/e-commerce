@@ -23,8 +23,8 @@ public class MysqlProductRepository implements ProductRepository {
     }
 
     @Override
-    public Optional<Product> productOfId(Long anId) {
-        return productJpaRepository.findById(anId).map(ProductEntity::toDomain);
+    public Optional<Product> productOfId(ProductId anId) {
+        return productJpaRepository.findById(anId.value()).map(ProductEntity::toDomain);
     }
 
     @Override
