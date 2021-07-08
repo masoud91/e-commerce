@@ -23,7 +23,7 @@ public class ProductCommandController {
     }
 
     @PostMapping("/add")
-    ResponseEntity<?> add(@Valid @RequestBody NewProductDTO addProductDTO) {
+    ResponseEntity<NewProductDTO> add(@Valid @RequestBody NewProductDTO addProductDTO) {
         AddProductCommand command = new AddProductCommand(
                 addProductDTO.getName(),
                 addProductDTO.getPrice(),
@@ -34,7 +34,7 @@ public class ProductCommandController {
     }
 
     @PutMapping("{id}/update_stock_count")
-    ResponseEntity<?> update_stock_count(@PathVariable String id,
+    ResponseEntity<Object> update_stock_count(@PathVariable String id,
                                          @RequestBody NewProductStockCountDTO newProductStockCountDTO) {
         UpdateProductStockCountCommand command = new UpdateProductStockCountCommand(
                 id,

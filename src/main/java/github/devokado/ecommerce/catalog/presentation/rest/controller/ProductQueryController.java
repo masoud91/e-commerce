@@ -23,14 +23,14 @@ public class ProductQueryController {
     }
 
     @GetMapping("/{id}")
-    ResponseEntity<?> getProductById(@PathVariable String id) {
+    ResponseEntity<ProductDTO> getProductById(@PathVariable String id) {
         GetProductQuery query = new GetProductQuery(id);
         ProductDTO productDTO = message.dispatch(query);
         return ResponseEntity.ok(productDTO);
     }
 
     @GetMapping("/")
-    ResponseEntity<?> getProducts(@RequestParam(required = false, name = "name") String name,
+    ResponseEntity<Page<ProductDTO>> getProducts(@RequestParam(required = false, name = "name") String name,
                                   @PageableDefault(page = 0, size = 20) Pageable pageable) {
 
         GetProductListQuery query = new GetProductListQuery(name, pageable);
