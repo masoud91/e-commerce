@@ -11,7 +11,7 @@ public class ProductDTO {
     String id;
     String name;
     Double price;
-    Integer stock_count;
+    Integer stockCount;
 
     public static ProductDTO fromDomain(Product aDomain) {
         return new ProductDTO(

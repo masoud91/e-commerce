@@ -30,14 +30,14 @@ public class ProductEntity {
     private Double price;
 
     @Column(name = "stock_count")
-    private Integer stock_count;
+    private Integer stockCount;
 
     public static ProductEntity from(Product aProduct) {
         ProductEntity productEntity = new ProductEntity();
         productEntity.setId(aProduct.id().value());
         productEntity.setName(aProduct.name().value());
         productEntity.setPrice(aProduct.price().amount());
-        productEntity.setStock_count(aProduct.stockCount().value());
+        productEntity.setStockCount(aProduct.stockCount().value());
 
         return productEntity;
     }
@@ -47,7 +47,7 @@ public class ProductEntity {
                 new ProductId(this.getId()),
                 new ProductName(this.getName()),
                 new Money(this.getPrice()),
-                new StockCount(this.getStock_count())
+                new StockCount(this.getStockCount())
         );
     }
 }
