@@ -15,6 +15,9 @@
     <description>E-Commerce Project</description>
     <properties>
         <java.version>11</java.version>
+        <sonar.projectKey>masoud91_e-commerce</sonar.projectKey>
+        <sonar.organization>masoud91</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
     <dependencies>
         <dependency>
