@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("v1/products")
-@Api(tags="Product")
+@Api(tags="Item")
 public class ProductQueryController {
 
     Message message;
@@ -23,14 +23,14 @@ public class ProductQueryController {
     }
 
     @GetMapping("/{id}")
-    ResponseEntity<ProductDTO> getProductById(@PathVariable String id) {
+    public ResponseEntity<ProductDTO> getProductById(@PathVariable String id) {
         GetProductQuery query = new GetProductQuery(id);
         ProductDTO productDTO = message.dispatch(query);
         return ResponseEntity.ok(productDTO);
     }
 
     @GetMapping("/")
-    ResponseEntity<Page<ProductDTO>> getProducts(@RequestParam(required = false, name = "name") String name,
+    public ResponseEntity<Page<ProductDTO>> getProducts(@RequestParam(required = false, name = "name") String name,
                                   @PageableDefault(page = 0, size = 20) Pageable pageable) {
 
         GetProductListQuery query = new GetProductListQuery(name, pageable);

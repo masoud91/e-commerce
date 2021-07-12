@@ -29,7 +29,7 @@ public class UpdateProductStockCountCommandHandler implements CommandHandler<Upd
 
     @Override
     @TransactionalEventListener
-    public Result Handle(UpdateProductStockCountCommand aCommand) {
+    public Result handle(UpdateProductStockCountCommand aCommand) {
         Product product =
                 productRepository.productOfId(
                         new ProductId(UUID.fromString(aCommand.getId()))

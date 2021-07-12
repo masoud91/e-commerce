@@ -14,4 +14,11 @@ public class ProductStockCountUpdated implements DomainEvent {
     public Integer getDelta() {
         return delta;
     }
+
+    @Override
+    public String toString() {
+        return "ProductStockCountUpdated{" +
+                "delta=" + delta +
+                '}';
+    }
 }

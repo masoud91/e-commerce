@@ -10,7 +10,7 @@ public abstract class Message {
 
     public <T extends Command> Result dispatch(T command) {
         CommandHandler<T> handler = (CommandHandler<T>) commandHandlerMap.get(command.getClass());
-        return (Result) handler.Handle(command);
+        return (Result) handler.handle(command);
     }
 
     public <T> T dispatch(Query<T> query) {

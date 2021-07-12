@@ -1,7 +1,8 @@
-package github.devokado.ecommerce.catalog.presentation.rest;
+package github.devokado.ecommerce.common.presentation.rest;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.bind.annotation.RestController;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.*;
@@ -26,7 +27,7 @@ class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .paths(PathSelectors.any())
-                .apis(RequestHandlerSelectors.basePackage(BASE_PACKAGE_TO_SCAN))
+                .apis(RequestHandlerSelectors.withClassAnnotation(RestController.class))
                 .build()
                 .securityContexts(Arrays.asList(securityContext()))
                 .securitySchemes(Arrays.asList(apiKey()))

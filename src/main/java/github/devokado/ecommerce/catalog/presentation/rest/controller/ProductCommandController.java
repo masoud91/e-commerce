@@ -13,7 +13,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("v1/products")
-@Api(tags="Product")
+@Api(tags="Item")
 public class ProductCommandController {
 
     Message message;
@@ -23,7 +23,7 @@ public class ProductCommandController {
     }
 
     @PostMapping("/add")
-    ResponseEntity<NewProductDTO> add(@Valid @RequestBody NewProductDTO addProductDTO) {
+    public ResponseEntity<NewProductDTO> add(@Valid @RequestBody NewProductDTO addProductDTO) {
         AddProductCommand command = new AddProductCommand(
                 addProductDTO.getName(),
                 addProductDTO.getPrice(),
@@ -34,7 +34,7 @@ public class ProductCommandController {
     }
 
     @PutMapping("{id}/update_stock_count")
-    ResponseEntity<Object> update_stock_count(@PathVariable String id,
+    public ResponseEntity<Object> updateStockCount(@PathVariable String id,
                                          @RequestBody NewProductStockCountDTO newProductStockCountDTO) {
         UpdateProductStockCountCommand command = new UpdateProductStockCountCommand(
                 id,

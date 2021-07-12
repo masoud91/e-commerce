@@ -15,6 +15,8 @@ public class Product extends BaseAggregateRoot {
         this.name = name;
         this.price = price;
         this.stockCount = stockCount;
+
+        this.registerEvent(new ProductAdded(this));
     }
 
     public void updateStockCount(StockCount newStockCount) {

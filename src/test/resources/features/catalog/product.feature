@@ -1,4 +1,4 @@
-Feature: Catalog management
+Feature: product management
 
   Scenario: should add a new product
     Given I am an admin
