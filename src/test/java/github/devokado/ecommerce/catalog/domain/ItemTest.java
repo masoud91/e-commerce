@@ -25,7 +25,7 @@ class ItemTest {
         product.updateStockCount(new StockCount(3));
 
         assertThat(product.stockCount().equals(new StockCount(3))).isTrue();
-        assertThat(product.events().size()).isEqualTo(1);
+        assertThat(product.events().size()).isEqualTo(2);
     }
 
 }
