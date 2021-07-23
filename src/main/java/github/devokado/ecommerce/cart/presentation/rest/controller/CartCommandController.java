@@ -24,7 +24,7 @@ public class CartCommandController {
     }
 
     @PostMapping("/add")
-    ResponseEntity<?> add(@Valid @RequestBody AddToCartDTO addToCartDTO ) {
+    public ResponseEntity<Object> add(@Valid @RequestBody AddToCartDTO addToCartDTO ) {
         AddToCartCommand addToCartCommand = new AddToCartCommand(
                 addToCartDTO.getUserId(),
                 addToCartDTO.getItemId(),
@@ -32,7 +32,7 @@ public class CartCommandController {
         );
 
         message.dispatch(addToCartCommand);
-        return ResponseEntity.ok(addToCartDTO);
+        return ResponseEntity.ok().build();
     }
 
 }

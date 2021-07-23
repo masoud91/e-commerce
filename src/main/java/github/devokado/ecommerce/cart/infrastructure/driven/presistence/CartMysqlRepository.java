@@ -22,7 +22,7 @@ public class CartMysqlRepository implements CartRepository {
     }
 
     @Override
-    public Optional<Cart> CartOfId(UUID anId) {
+    public Optional<Cart> cartOfId(UUID anId) {
         return cartJpaRepository.findById(anId).map(CartEntity::toDomain);
     }
 

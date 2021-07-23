@@ -1,49 +1,33 @@
 package github.devokado.ecommerce.cart.infrastructure.driven.persistence;
 
-import github.devokado.ecommerce.EcommerceApplication;
 import github.devokado.ecommerce.cart.infrastructure.driven.presistence.CartEntity;
 import github.devokado.ecommerce.cart.infrastructure.driven.presistence.CartItemEntity;
 import github.devokado.ecommerce.cart.infrastructure.driven.presistence.CartJpaRepository;
-import github.devokado.ecommerce.cart.infrastructure.driven.presistence.CartMysqlRepository;
-import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.transaction.annotation.Transactional;
-
-import javax.persistence.EntityManager;
-
-import static org.assertj.core.api.Assertions.*;
 
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
-public class CartMysqlRepositoryTest {
+class CartMysqlRepositoryTest {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(EcommerceApplication.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CartMysqlRepositoryTest.class);
 
     @Autowired
     private CartJpaRepository cartJpaRepository;
 
-//    CartMysqlRepository cartMysqlRepository;
-//
-//    @Before
-//    public void setup(){
-//        this.cartMysqlRepository = new CartMysqlRepository(this.cartJpaRepository);
-//    }
-
     @Test
-    public void shouldSaveCart(){
+    void shouldSaveCart() {
 
         UUID id = UUID.randomUUID();
 
@@ -68,7 +52,7 @@ public class CartMysqlRepositoryTest {
 
         cartJpaRepository.save(cartEntity);
 
-        CartEntity cartEntityFetched =  cartJpaRepository.findById(id).get();
+        CartEntity cartEntityFetched = cartJpaRepository.findById(id).orElseThrow();
 
         assertThat(cartEntityFetched.getId()).isEqualTo(id);
         assertThat(cartEntityFetched.getCartItems().size()).isEqualTo(2);

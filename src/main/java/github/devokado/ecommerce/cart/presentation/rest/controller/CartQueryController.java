@@ -23,7 +23,7 @@ public class CartQueryController {
     }
 
     @GetMapping()
-    ResponseEntity<?> getItems() {
+    public ResponseEntity<List<CartItemDTO>> getItems() {
         GetCartItemsQuery query = new GetCartItemsQuery();
         List<CartItemDTO> cartItems = message.dispatch(query);
         return ResponseEntity.ok(cartItems);

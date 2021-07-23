@@ -30,9 +30,8 @@ public class CartEntity {
         cartEntity.setId(aCart.id());
 
         Set<CartItemEntity> cartItemEntities = new HashSet<>();
-        aCart.cartItems().forEach(x -> {
-            cartItemEntities.add(new CartItemEntity(cartEntity, x.itemId(), x.count().value()));
-        });
+        aCart.cartItems().forEach(x ->
+                cartItemEntities.add(new CartItemEntity(cartEntity, x.itemId(), x.count().value())));
 
         cartEntity.setCartItems(cartItemEntities);
 

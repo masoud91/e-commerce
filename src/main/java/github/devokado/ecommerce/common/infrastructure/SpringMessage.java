@@ -23,12 +23,6 @@ public class SpringMessage implements Message {
         this.registerQueryHandlers();
     }
 
-/*    @PostConstruct
-    private void setUp() {
-        this.registerCommandHandlers();
-        this.registerQueryHandlers();
-    }*/
-
     private void registerCommandHandlers(){
         if (injectedCommandHandlerMap == null || injectedCommandHandlerMap.isEmpty()) {
             return;

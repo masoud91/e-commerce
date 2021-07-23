@@ -24,7 +24,7 @@ public class AddToCartCommandHandler implements CommandHandler<AddToCartCommand>
     public Result handle(AddToCartCommand command) {
 
         Cart cart = cartRepository
-                .CartOfId(UUID.fromString(command.getUserId()))
+                .cartOfId(UUID.fromString(command.getUserId()))
                 .orElse(new Cart(UUID.fromString(command.getUserId())));
 
         cart.addItem(UUID.fromString(command.getItemId()), new ItemCount(command.getCount()));

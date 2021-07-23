@@ -6,10 +6,10 @@ import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.*;
 
-public class CartTest {
+class CartTest {
 
     @Test
-    public void shouldAddItemsToCart(){
+    void shouldAddItemsToCart(){
         Cart cart = new Cart(
                 UUID.randomUUID()
         );

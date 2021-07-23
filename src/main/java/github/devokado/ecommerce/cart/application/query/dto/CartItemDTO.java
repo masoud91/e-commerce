@@ -8,11 +8,11 @@ import lombok.Getter;
 public class CartItemDTO {
 
     String id;
-    String product_id;
-    String product_name;
-    Double product_unit_price;
-    Double product_unit_price_old;
-    String product_image_url;
+    String productId;
+    String productName;
+    Double productUnitPrice;
+    Double productUnitPriceOld;
+    String productImageUrl;
     Integer count;
 
 }

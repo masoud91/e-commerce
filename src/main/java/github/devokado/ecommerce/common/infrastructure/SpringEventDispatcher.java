@@ -15,7 +15,6 @@ public class SpringEventDispatcher implements DomainEventDispatcher {
     }
 
     public void dispatch(final BaseAggregateRoot aggregateRoot) {
-        System.out.println("Publishing DomainEvent event. ");
         aggregateRoot.events().forEach(applicationEventPublisher::publishEvent);
         aggregateRoot.clearEvents();
     }

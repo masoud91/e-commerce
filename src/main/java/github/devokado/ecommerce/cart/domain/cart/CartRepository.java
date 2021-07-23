@@ -6,7 +6,7 @@ import java.util.UUID;
 public interface CartRepository {
     void save(Cart aProduct);
 
-    Optional<Cart> CartOfId(UUID anId);
+    Optional<Cart> cartOfId(UUID anId);
 
     UUID nextId();
 }

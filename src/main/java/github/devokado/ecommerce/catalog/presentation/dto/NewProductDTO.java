@@ -9,6 +9,7 @@ import lombok.ToString;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class NewProductDTO {
     String name;
     Double price;

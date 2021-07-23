@@ -16,7 +16,7 @@ import java.util.UUID;
 @EqualsAndHashCode(exclude="cart")
 @ToString(exclude="cart")
 @Table(name = "cart_item")
-public class CartItemEntity implements Serializable {
+public class CartItemEntity {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)

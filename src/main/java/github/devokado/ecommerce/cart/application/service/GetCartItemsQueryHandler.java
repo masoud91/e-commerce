@@ -10,9 +10,6 @@ import java.util.List;
 @Service
 public class GetCartItemsQueryHandler implements QueryHandler<GetCartItemsQuery, List<CartItemDTO>> {
 
-    public GetCartItemsQueryHandler() {
-    }
-
     @Override
     public List<CartItemDTO> Handle(GetCartItemsQuery query) {
         CartItemDTO cartItemDTO =

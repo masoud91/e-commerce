@@ -1,5 +1,5 @@
 package github.devokado.ecommerce.common.application.message;
 
-public interface QueryHandler<TQuery extends Query<TResult>, TResult> {
-    TResult Handle(TQuery query);
+public interface QueryHandler<Q extends Query<R>, R> {
+    R Handle(Q query);
 }
