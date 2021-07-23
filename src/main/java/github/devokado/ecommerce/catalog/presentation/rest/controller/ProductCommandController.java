@@ -13,7 +13,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("v1/products")
-@Api(tags="Item")
+@Api(tags="Product")
 public class ProductCommandController {
 
     Message message;

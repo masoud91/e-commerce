@@ -5,10 +5,11 @@ import github.devokado.ecommerce.catalog.application.command.AddProductCommand;
 import github.devokado.ecommerce.catalog.domain.product.*;
 import github.devokado.ecommerce.common.application.message.CommandHandler;
 import github.devokado.ecommerce.common.application.message.Result;
-import github.devokado.ecommerce.common.domain.DomainEventDispatcher;
+import github.devokado.ecommerce.common.application.event.DomainEventDispatcher;
 import github.devokado.ecommerce.common.domain.Money;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.event.TransactionalEventListener;
+
+import javax.transaction.Transactional;
 
 
 @Service
@@ -23,7 +24,7 @@ public class AddProductCommandHandler implements CommandHandler<AddProductComman
     }
 
     @Override
-    @TransactionalEventListener
+    @Transactional
     public Result handle(AddProductCommand aCommand) {
         ProductId id = productRepository.nextId();
         Product product = new Product(

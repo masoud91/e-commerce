@@ -9,7 +9,7 @@ import java.util.UUID;
 import static org.assertj.core.api.Assertions.assertThat;
 import static github.devokado.ecommerce.common.domain.EventTester.*;
 
-class ItemTest {
+class ProductTest {
 
     @Test
     void shouldUpdateStockCount() {

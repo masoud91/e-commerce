@@ -4,10 +4,9 @@ import github.devokado.ecommerce.EcommerceApplication;
 import github.devokado.ecommerce.cart.infrastructure.driven.presistence.ItemEntity;
 import github.devokado.ecommerce.cart.infrastructure.driven.presistence.ItemJpaRepository;
 import github.devokado.ecommerce.catalog.domain.product.ProductAdded;
-import github.devokado.ecommerce.common.domain.DomainEventListener;
+import github.devokado.ecommerce.common.application.event.DomainEventListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;
@@ -23,7 +22,6 @@ public class ProductAddedListener implements DomainEventListener<ProductAdded> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(EcommerceApplication.class);
 
-    @EventListener
     @Override
     public void handle(ProductAdded productAdded) {
         LOGGER.info("ProductStockCountUpdated event received: {}", productAdded.toString());
@@ -34,6 +32,6 @@ public class ProductAddedListener implements DomainEventListener<ProductAdded> {
                 productAdded.stockCount()
         );
 
-        repository.saveAndFlush(itemEntity);
+        repository.save(itemEntity);
     }
 }

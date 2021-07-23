@@ -6,7 +6,7 @@ import github.devokado.ecommerce.catalog.domain.product.ProductId;
 import github.devokado.ecommerce.catalog.domain.product.StockCount;
 import github.devokado.ecommerce.common.application.message.CommandHandler;
 import github.devokado.ecommerce.common.application.message.Result;
-import github.devokado.ecommerce.common.domain.DomainEventDispatcher;
+import github.devokado.ecommerce.common.application.event.DomainEventDispatcher;
 import github.devokado.ecommerce.catalog.domain.product.Product;
 import github.devokado.ecommerce.catalog.domain.product.ProductRepository;
 import org.springframework.stereotype.Service;

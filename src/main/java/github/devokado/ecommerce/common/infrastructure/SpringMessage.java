@@ -9,7 +9,7 @@ import java.lang.reflect.Type;
 import java.util.Map;
 
 @Component
-public class SpringMessage extends Message {
+public class SpringMessage implements Message {
 
     private final Map<String, CommandHandler<? extends Command>> injectedCommandHandlerMap;
     private final Map<String, QueryHandler<? extends Query<?>, ?>> injectedQueryHandlerMap;
@@ -18,13 +18,16 @@ public class SpringMessage extends Message {
                          Map<String, QueryHandler<? extends Query<?>, ?>> injectedQueryHandlerMap) {
         this.injectedCommandHandlerMap = injectedCommandHandlerMap;
         this.injectedQueryHandlerMap = injectedQueryHandlerMap;
-    }
 
-    @PostConstruct
-    private void setUp() {
         this.registerCommandHandlers();
         this.registerQueryHandlers();
     }
+
+/*    @PostConstruct
+    private void setUp() {
+        this.registerCommandHandlers();
+        this.registerQueryHandlers();
+    }*/
 
     private void registerCommandHandlers(){
         if (injectedCommandHandlerMap == null || injectedCommandHandlerMap.isEmpty()) {

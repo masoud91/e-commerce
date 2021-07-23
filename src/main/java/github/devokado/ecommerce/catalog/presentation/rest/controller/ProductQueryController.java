@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("v1/products")
-@Api(tags="Item")
+@Api(tags="Product")
 public class ProductQueryController {
 
     Message message;

@@ -1,7 +1,7 @@
 package github.devokado.ecommerce.cart.application.service;
 
 import github.devokado.ecommerce.EcommerceApplication;
-import github.devokado.ecommerce.common.domain.DomainEventListener;
+import github.devokado.ecommerce.common.application.event.DomainEventListener;
 import github.devokado.ecommerce.catalog.domain.product.ProductStockCountUpdated;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

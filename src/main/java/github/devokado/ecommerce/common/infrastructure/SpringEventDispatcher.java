@@ -1,7 +1,7 @@
 package github.devokado.ecommerce.common.infrastructure;
 
 import github.devokado.ecommerce.common.domain.BaseAggregateRoot;
-import github.devokado.ecommerce.common.domain.DomainEventDispatcher;
+import github.devokado.ecommerce.common.application.event.DomainEventDispatcher;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;
 
