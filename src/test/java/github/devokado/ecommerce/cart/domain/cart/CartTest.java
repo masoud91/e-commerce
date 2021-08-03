@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.*;
 class CartTest {
 
     @Test
-    void shouldAddItemsToCart(){
+    void shouldAddItemsToCart() {
         Cart cart = new Cart(
                 UUID.randomUUID()
         );
