@@ -26,6 +26,20 @@ class ProductTest {
         assertThat(expectedEvents(product.events(), ProductStockCountUpdated.class)).isEqualTo(1);
     }
 
+    @Test
+    void shouldAddTags() {
+        Product product = new Product(
+                new ProductId(UUID.randomUUID()),
+                new ProductName("a product name"),
+                new Money(80.99),
+                new StockCount(2)
+        );
+
+        product.addTag("Tag one");
+        product.addTag("Tag two");
+
+        assertThat(product.tags().size()).isEqualTo(2);
+    }
 
 
 }

@@ -40,4 +40,13 @@ public class AddProductCommandHandler implements CommandHandler<AddProductComman
 
         return new Result();
     }
+
+//    @Transactional
+//    public void addTag(AddTagCommand command) {
+//        Product product = productRepository.productOfId(command.getProductId());
+//
+//        product.addTag(command.getTagName());
+//
+//        productRepository.save(product);
+//    }
 }

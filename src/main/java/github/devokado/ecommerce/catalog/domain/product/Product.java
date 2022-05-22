@@ -3,12 +3,16 @@ package github.devokado.ecommerce.catalog.domain.product;
 import github.devokado.ecommerce.common.domain.BaseAggregateRoot;
 import github.devokado.ecommerce.common.domain.Money;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Product extends BaseAggregateRoot {
 
     ProductId id;
     ProductName name;
     Money price;
     StockCount stockCount;
+    Set<Tag> tags = new HashSet<>();
 
     public Product(ProductId id, ProductName name, Money price, StockCount stockCount) {
         this.id = id;
@@ -25,6 +29,10 @@ public class Product extends BaseAggregateRoot {
         this.registerEvent(new ProductStockCountUpdated(delta.value()));
     }
 
+    public void addTag(String tagName) {
+        tags.add(new Tag(tagName));
+    }
+
     public ProductId id() {
         return id;
     }
@@ -39,5 +47,9 @@ public class Product extends BaseAggregateRoot {
 
     public StockCount stockCount() {
         return stockCount;
+    }
+
+    public Set<Tag> tags() {
+        return tags;
     }
 }

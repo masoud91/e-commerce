@@ -34,3 +34,12 @@ public class Cart extends BaseAggregateRoot {
         return cartItems;
     }
 }
+
+
+//// begin transaction
+// get item count from DB and check for valid count
+// add item into cart
+// subtract count from item
+// save cart
+// save item
+//// commit transaction
