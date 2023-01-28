@@ -9,19 +9,21 @@ import org.springframework.http.HttpMethod;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ProductStepDefinition extends BaseStepDefinition {
+public class GreetingsStepDefinition extends BaseStepDefinition {
 
-    @Given("I am an admin")
-    public void iAmAnAdmin() {
+    @Given("I am a guest user")
+    public void iAmAGuestUser() {
+
     }
 
-    @When("I add a product with following details")
-    public void iAddAProductWithFollowingDetails(DataTable table) {
-        sendRequest(HttpMethod.POST, "/v1/products/add", table);
+    @When("I ask for greetings")
+    public void iAskForGreetings() {
+        sendRequest(HttpMethod.GET, "/greetings", null, null, DataTable.emptyDataTable());
     }
 
-    @Then("I have the added product available")
-    public void iHaveTheAddedProductAvailable() {
+    @Then("I receive a warm welcome")
+    public void iReceiveAWarmWelcome() {
         assertThat(response.getStatusCode().is2xxSuccessful()).isTrue();
+        assertThat(response.getBody()).isEqualTo("Hi!");
     }
 }
